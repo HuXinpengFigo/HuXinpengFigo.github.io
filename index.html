@@ -228,6 +228,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/04/Scrapy框架开发爬虫流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/04/Scrapy框架开发爬虫流程/" itemprop="url">Scrapy框架开发爬虫流程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T19:26:19+08:00">
+                2018-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Scrapy框架开发爬虫流程"><a href="#Scrapy框架开发爬虫流程" class="headerlink" title="#Scrapy框架开发爬虫流程"></a>#Scrapy框架开发爬虫流程</h2><p>[TOC]</p>
+<p>##开发项目的准备工作</p>
+<blockquote>
+<ul>
+<li>准备好<code>chrome</code>,便于查看<code>Xpath</code>地址</li>
+<li>配置好<code>Pycharm</code>,将<code>Scrapy</code>内置其中</li>
+</ul>
+</blockquote>
+<p>##开发前期工作</p>
+<blockquote>
+<ul>
+<li>利用<code>Scrapy</code>内置<code>shell</code>命令抓取整个网站镜像<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell http://nc.ganji.com/fang5/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>利用<code>view(response)</code>查看抓取下的网站是否与原网站相符</li>
+<li>进入chrome的<code>开发者工具</code>中</li>
+<li>找到想要抓取的item右键选择<code>检查</code>,可以看到该item的html信息<br>在其html信息位置再次点击右键,选择<code>Copy Xpath</code></li>
+<li>回到终端,利用<code>response.xpath().extract()</code>检查抓取到的内容是否符合要求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; response.xpath(&quot;//*[@id=&apos;puid-2894654515&apos;]/dl/dd[5]/div[1]/span[1]&quot;).extract()</span><br><span class="line">&gt; #注意chrome复制来的可能是`[@id=&quot;puid-2894654515&quot;]`,要将双引号改为单引号</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>之后按情况稍微修改一下Xpath地址,使其更符合抓取要求</li>
+</ul>
+</blockquote>
+<p>##创建Scrapy爬虫</p>
+<blockquote>
+<ul>
+<li>利用代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;scrapy start project xxx</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>创建一个名为<code>xxx</code>的Scrapy爬虫项目</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/my-first-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -508,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>

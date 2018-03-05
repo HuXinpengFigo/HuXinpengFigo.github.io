@@ -175,17 +175,10 @@
 <p>为了使机器人动作由单纯的点到点运动转化为平滑曲线运动,UT底层添加了以多个点为基准生成拟合曲线函数的方法:<code>B-spline Curves</code></p>
 </blockquote>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote>
-<p>B样条曲线分为均匀B样条曲线和非均匀B样条曲线，这里只讨论均匀B样条曲线</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>给定n+1个控制点Pi(i=0,1,2,…,n)的坐标Pi，n次B样条曲线段的<strong>参数表达式</strong>为:<br><img src="/2018/03/05/KICK-IK中使用到的B样条曲线/1341009706_2340.png" alt="Alt text"><br>式中为<strong>F(t)</strong>n次B样条基函数，其形式为:<br><img src="/2018/03/05/KICK-IK中使用到的B样条曲线/ft.png" alt="Alt text"><br>其中<br><img src="/2018/03/05/KICK-IK中使用到的B样条曲线/cj.png" alt="Alt text"></p>
-</blockquote>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p><img src="/2018/03/05/KICK-IK中使用到的B样条曲线/b样条.png" alt="Alt text"></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><blockquote>
-<p><code>STARTSTATE</code><br><code>STARTCURVE LEG_LEFT</code><br>//B样条曲线拟合开始 使用左脚<br><code>controlpoint (...x)(...y)(...z)(...a)(...b)(...c) end</code><br>//两点拟合生成曲线<br><code>ENDCURVE</code><br><code>ENDSTATE</code></p>
-</blockquote>
-
+<p>B样条曲线分为均匀B样条曲线和非均匀B样条曲线，这里只讨论均匀B样条曲线<br></p></blockquote>
+        
+          <a class="article-more-a" href="/2018/03/05/KICK-IK中使用到的B样条曲线/#more">more >></a>
+        
       
 
       

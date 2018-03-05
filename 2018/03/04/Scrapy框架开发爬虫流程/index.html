@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Scrapy框架开发爬虫流程 | Figo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC] ##开发项目的准备工作   准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中   ##开发前期工作   利用Scrapy内置shell命令抓取整个网站镜像1scrapy shell http://nc.ganji.com/fang5/      利用view(response)查看抓取下的网站是否与原网站相符 进入chrome的开发者工具中 找到">
+  <meta name="description" content="开发项目的准备工作  准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中   开发前期工作  利用Scrapy内置shell命令抓取整个网站镜像1scrapy shell http://nc.ganji.com/fang5/      利用view(response)查看抓取下的网站是否与原网站相符 进入chrome的开发者工具中 找到想要抓取的item右键选">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scrapy框架开发爬虫流程">
 <meta property="og:url" content="http://yoursite.com/2018/03/04/Scrapy框架开发爬虫流程/index.html">
 <meta property="og:site_name" content="Figo">
-<meta property="og:description" content="[TOC] ##开发项目的准备工作   准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中   ##开发前期工作   利用Scrapy内置shell命令抓取整个网站镜像1scrapy shell http://nc.ganji.com/fang5/      利用view(response)查看抓取下的网站是否与原网站相符 进入chrome的开发者工具中 找到">
-<meta property="og:updated_time" content="2018-03-05T09:23:57.560Z">
+<meta property="og:description" content="开发项目的准备工作  准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中   开发前期工作  利用Scrapy内置shell命令抓取整个网站镜像1scrapy shell http://nc.ganji.com/fang5/      利用view(response)查看抓取下的网站是否与原网站相符 进入chrome的开发者工具中 找到想要抓取的item右键选">
+<meta property="og:updated_time" content="2018-03-05T09:25:03.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scrapy框架开发爬虫流程">
-<meta name="twitter:description" content="[TOC] ##开发项目的准备工作   准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中   ##开发前期工作   利用Scrapy内置shell命令抓取整个网站镜像1scrapy shell http://nc.ganji.com/fang5/      利用view(response)查看抓取下的网站是否与原网站相符 进入chrome的开发者工具中 找到">
+<meta name="twitter:description" content="开发项目的准备工作  准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中   开发前期工作  利用Scrapy内置shell命令抓取整个网站镜像1scrapy shell http://nc.ganji.com/fang5/      利用view(response)查看抓取下的网站是否与原网站相符 进入chrome的开发者工具中 找到想要抓取的item右键选">
   
     <link rel="alternative" href="/atom.xml" title="Figo" type="application/atom+xml">
   
@@ -173,16 +173,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[TOC]</p>
-<p>##开发项目的准备工作</p>
-<blockquote>
+        <h2 id="开发项目的准备工作"><a href="#开发项目的准备工作" class="headerlink" title="开发项目的准备工作"></a>开发项目的准备工作</h2><blockquote>
 <ul>
 <li>准备好<code>chrome</code>,便于查看<code>Xpath</code>地址</li>
 <li>配置好<code>Pycharm</code>,将<code>Scrapy</code>内置其中</li>
 </ul>
 </blockquote>
-<p>##开发前期工作</p>
-<blockquote>
+<h2 id="开发前期工作"><a href="#开发前期工作" class="headerlink" title="开发前期工作"></a>开发前期工作</h2><blockquote>
 <ul>
 <li>利用<code>Scrapy</code>内置<code>shell</code>命令抓取整个网站镜像<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell http://nc.ganji.com/fang5/</span><br></pre></td></tr></table></figure>
 </li>
@@ -202,8 +199,7 @@
 <li>之后按情况稍微修改一下Xpath地址,使其更符合抓取要求</li>
 </ul>
 </blockquote>
-<p>##创建Scrapy爬虫</p>
-<blockquote>
+<h2 id="创建Scrapy爬虫"><a href="#创建Scrapy爬虫" class="headerlink" title="创建Scrapy爬虫"></a>创建Scrapy爬虫</h2><blockquote>
 <ul>
 <li>利用代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;scrapy start project xxx</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </li>

@@ -158,39 +158,10 @@
       
         <h1 id="关于配置网络以及安装库的解决方法"><a href="#关于配置网络以及安装库的解决方法" class="headerlink" title="关于配置网络以及安装库的解决方法"></a>关于配置网络以及安装库的解决方法</h1><hr>
 <blockquote>
-<p>先安装python<br><code>Ctrl+Alt+T</code>打开终端,依次输入以下命令:<br><code>sudo add-apt-repository ppa:fkrull/deadsnakes</code><br><code>sudo apt-get update</code><br><code>sudo apt-get install python</code><br><code>sudo apt-get install libncurses5-dev</code></p>
-</blockquote>
-<blockquote>
-<p>鉴于有些同学安装不上pip,我们可以尝试修改apt-get的代理</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>首先,打开文件<code>sources.list</code>,弹出窗口如下,选择添加<br><img src="/2018/03/06/关于配置网络以及安装库的解决方法/选区_006.png" alt="Alt text"><br>之后,再按<code>Ctrl+Alt+T</code>打开终端顺序执行以下命令:</li>
-<li><code>sudo apt-get update</code></li>
-<li><code>sudo apt-get upgrade</code></li>
-<li><code>sudo apt-get python-pip</code><br>检验pip是否安装成功为输入<code>pip -V</code><br>出现一下信息为安装成功(pip版本可能略有不同)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip 9.0.1 from /home/figo/.local/lib/python2.7/site-packages (python 2.7)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<hr>
-<p><strong> 如果以上方法不起作用,这里还有一个备用方法</strong></p>
-<blockquote>
-<ul>
-<li>首先,<code>Ctrl+Alt+T</code>进入终端 </li>
-<li>之后,输入<code>sudo gedit /etc/apt/sources.list</code></li>
-<li>将其中的内容替换为:</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties</span><br><span class="line">deb http://archive.canonical.com/ubuntu xenial partner</span><br><span class="line">deb-src http://archive.canonical.com/ubuntu xenial partner</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>替换完之后重启电脑,执行之前安装pip的代码</p>
-</blockquote>
-<hr>
-<p>接下来安装numpy与pyevolve</p>
-<blockquote>
-<p>终端命令:<br><code>pip install numpy</code><br><code>pip install pyevolve</code></p>
-</blockquote>
-<h2 id="安装成功了pyevolve之后就可以愉快地使用遗传算法了"><a href="#安装成功了pyevolve之后就可以愉快地使用遗传算法了" class="headerlink" title="安装成功了pyevolve之后就可以愉快地使用遗传算法了"></a>安装成功了pyevolve之后就可以愉快地使用遗传算法了</h2>
+<p>先安装python<br><code>Ctrl+Alt+T</code>打开终端,依次输入以下命令:<br><code>sudo add-apt-repository ppa:fkrull/deadsnakes</code><br><code>sudo apt-get update</code><br><code>sudo apt-get install python</code><br><code>sudo apt-get install libncurses5-dev</code><br></p></blockquote>
+        
+          <a class="article-more-a" href="/2018/03/06/关于配置网络以及安装库的解决方法/#more">more >></a>
+        
       
 
       

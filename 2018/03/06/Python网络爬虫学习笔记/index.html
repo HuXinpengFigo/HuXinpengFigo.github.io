@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Scrapy框架开发爬虫流程 | Figo</title>
+  <title>Python网络爬虫学习笔记 | Figo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="开发项目的准备工作  准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中">
-<meta name="keywords" content="爬虫,Scrapy">
+  <meta name="description" content="Python网络爬虫学习笔记  初入网络爬虫 首先要检查我们所写的网络爬虫要符合什么样的协议标准：robots.txt  通常robots.txt这样的文件在网站域名/robots.txt中获取,比如:  访问:http://example.webscraping.com/robots.txt获取webscring的robots.txt">
+<meta name="keywords" content="Python,Beautiful Soup,爬虫">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Scrapy框架开发爬虫流程">
-<meta property="og:url" content="http://yoursite.com/2018/03/04/Scrapy框架开发爬虫流程/index.html">
+<meta property="og:title" content="Python网络爬虫学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/03/06/Python网络爬虫学习笔记/index.html">
 <meta property="og:site_name" content="Figo">
-<meta property="og:description" content="开发项目的准备工作  准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中">
-<meta property="og:updated_time" content="2018-03-05T11:54:29.501Z">
+<meta property="og:description" content="Python网络爬虫学习笔记  初入网络爬虫 首先要检查我们所写的网络爬虫要符合什么样的协议标准：robots.txt  通常robots.txt这样的文件在网站域名/robots.txt中获取,比如:  访问:http://example.webscraping.com/robots.txt获取webscring的robots.txt">
+<meta property="og:image" content="http://yoursite.com/2018/03/06/Python网络爬虫学习笔记/选区_004.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/06/Python网络爬虫学习笔记/选区_003.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/06/Python网络爬虫学习笔记/选区_005.png">
+<meta property="og:updated_time" content="2018-03-06T12:45:17.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Scrapy框架开发爬虫流程">
-<meta name="twitter:description" content="开发项目的准备工作  准备好chrome,便于查看Xpath地址 配置好Pycharm,将Scrapy内置其中">
+<meta name="twitter:title" content="Python网络爬虫学习笔记">
+<meta name="twitter:description" content="Python网络爬虫学习笔记  初入网络爬虫 首先要检查我们所写的网络爬虫要符合什么样的协议标准：robots.txt  通常robots.txt这样的文件在网站域名/robots.txt中获取,比如:  访问:http://example.webscraping.com/robots.txt获取webscring的robots.txt">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/06/Python网络爬虫学习笔记/选区_004.png">
   
     <link rel="alternative" href="/atom.xml" title="Figo" type="application/atom+xml">
   
@@ -154,63 +158,165 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Scrapy框架开发爬虫流程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Python网络爬虫学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Scrapy框架开发爬虫流程
+      Python网络爬虫学习笔记
     </h1>
   
 
         
-        <a href="/2018/03/04/Scrapy框架开发爬虫流程/" class="archive-article-date">
-  	<time datetime="2018-03-04T11:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
+        <a href="/2018/03/06/Python网络爬虫学习笔记/" class="archive-article-date">
+  	<time datetime="2018-03-06T12:36:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="开发项目的准备工作"><a href="#开发项目的准备工作" class="headerlink" title="开发项目的准备工作"></a>开发项目的准备工作</h2><blockquote>
+        <h1 id="Python网络爬虫学习笔记"><a href="#Python网络爬虫学习笔记" class="headerlink" title="Python网络爬虫学习笔记"></a>Python网络爬虫学习笔记</h1><hr>
+<hr>
+<h2 id="初入网络爬虫"><a href="#初入网络爬虫" class="headerlink" title="初入网络爬虫"></a>初入网络爬虫</h2><blockquote>
+<p>首先要检查我们所写的网络爬虫要符合什么样的协议标准：<em>robots.txt</em></p>
+</blockquote>
+<p>通常<strong>robots.txt</strong>这样的文件在<code>网站域名/robots.txt</code>中获取,比如:</p>
+<blockquote>
+<p>访问:<code>http://example.webscraping.com/robots.txt</code><br>获取<strong>webscring</strong>的<em>robots.txt</em><br><a id="more"></a></p>
+</blockquote>
+<p>###识别网站所用的模块<br><strong>利用命令行安装builtwith:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install builtwith</span><br></pre></td></tr></table></figure></p>
+<p><strong>使用方法:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;python</span><br><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> builtwith</span><br><span class="line">&gt;&gt;&gt;builtwith(<span class="string">'http://example.webscraping.com'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>###寻找网站所有者<br><strong>安装whois:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python-whois</span><br></pre></td></tr></table></figure></p>
+<p><strong>使用方法:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> whois</span><br><span class="line">&gt;&gt;&gt;<span class="keyword">print</span> whois.whois(<span class="string">'appspot.com'</span>)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="编写爬虫"><a href="#编写爬虫" class="headerlink" title="编写爬虫"></a>编写爬虫</h2><blockquote>
 <ul>
-<li>准备好<code>chrome</code>,便于查看<code>Xpath</code>地址</li>
-<li>配置好<code>Pycharm</code>,将<code>Scrapy</code>内置其中</li>
+<li>利用<strong>urllib2</strong>模块下载URL</li>
+<li>设置用户代理</li>
+<li>利用正则表达式解析网站地图</li>
+<li>ID遍历爬虫</li>
+<li>利用<strong>urllib2</strong>模块来支持代理</li>
+<li>链接爬虫</li>
+<li>改相对链接为绝对链接</li>
 </ul>
 </blockquote>
-<a id="more"></a>
-<h2 id="开发前期工作"><a href="#开发前期工作" class="headerlink" title="开发前期工作"></a>开发前期工作</h2><blockquote>
-<ul>
-<li>利用<code>Scrapy</code>内置<code>shell</code>命令抓取整个网站镜像<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell http://nc.ganji.com/fang5/</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
+<p><strong>代码思想</strong></p>
 <blockquote>
 <ul>
-<li>利用<code>view(response)</code>查看抓取下的网站是否与原网站相符</li>
-<li>进入chrome的<code>开发者工具</code>中</li>
-<li>找到想要抓取的item右键选择<code>检查</code>,可以看到该item的html信息<br>在其html信息位置再次点击右键,选择<code>Copy Xpath</code></li>
-<li>回到终端,利用<code>response.xpath().extract()</code>检查抓取到的内容是否符合要求<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; response.xpath(&quot;//*[@id=&apos;puid-2894654515&apos;]/dl/dd[5]/div[1]/span[1]&quot;).extract()</span><br><span class="line">&gt; #注意chrome复制来的可能是`[@id=&quot;puid-2894654515&quot;]`,要将双引号改为单引号</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>支持代理方面可以用更友好的Python HTTP模块</li>
+<li>下载限速为未在两次下载设置延时所致利用<code>time.sleep()</code>解决</li>
+<li>爬虫陷阱为在一个链接中动态生成无限个链接所致,将访问深度预先设置好就行,若不想使用该功能,将<code>max_depth</code>设置成负数就行</li>
 </ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>之后按情况稍微修改一下Xpath地址,使其更符合抓取要求</li>
-</ul>
-</blockquote>
-<h2 id="创建Scrapy爬虫"><a href="#创建Scrapy爬虫" class="headerlink" title="创建Scrapy爬虫"></a>创建Scrapy爬虫</h2><blockquote>
-<ul>
-<li>利用代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;scrapy start project xxx</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>创建一个名为<code>xxx</code>的Scrapy爬虫项目</p>
 </blockquote>
 <hr>
+<h2 id="数据抓取"><a href="#数据抓取" class="headerlink" title="数据抓取"></a>数据抓取</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><blockquote>
+<ul>
+<li>利用<code>download()</code>函数将<strong>html</strong>下载下来</li>
+<li>然后用<code>re.findall()</code>函数将匹配<td>的元素筛选出来</td></li>
+</ul>
+</blockquote>
+<h3 id="Beautiful-Soup"><a href="#Beautiful-Soup" class="headerlink" title="Beautiful Soup"></a>Beautiful Soup</h3><blockquote>
+<p>Beautiful Soup是一个解析网页的Python模块</p>
+</blockquote>
+<p><strong>安装:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br></pre></td></tr></table></figure></p>
+<p><strong>Beautiful Soup补全HTML格式:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">&gt;&gt;&gt;broken_html = <span class="string">'&lt;ul class=country&gt;&lt;li&gt;Area&lt;li&gt;Population&lt;/ul&gt;'</span></span><br><span class="line">&gt;&gt;&gt;soup = BeautifulSoup(broken_html, <span class="string">'html.parser'</span>)</span><br><span class="line">&gt;&gt;&gt;fixed_html = soup.prettify()</span><br><span class="line">&gt;&gt;&gt;<span class="keyword">print</span> fixed_html</span><br></pre></td></tr></table></figure></p>
+<p><strong>输出结果为:</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class="country"&gt;</span><br><span class="line"> &lt;li&gt;</span><br><span class="line">  Area</span><br><span class="line">  &lt;li&gt;</span><br><span class="line">   Population</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line"> &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Lxml"><a href="#Lxml" class="headerlink" title="Lxml"></a>Lxml</h3><blockquote>
+<p>Lxml为基于libxml2这一XML解析库的Python,该模块用C语言编写,速度比BeautifulSoup更快</p>
+</blockquote>
+<p><strong>使用示例:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> lxml.html</span><br><span class="line">&gt;&gt;&gt;broken_html = <span class="string">'&lt;ul class=country&gt;&lt;li&gt;Area&lt;li&gt;Population&lt;/ul&gt;'</span></span><br><span class="line">&gt;&gt;&gt;tree = lxml.html.fromstring(broken_html)</span><br><span class="line">&gt;&gt;&gt;fixed_html = lxml.html.tostring(tree, pretty_print=<span class="keyword">True</span>)</span><br><span class="line">&gt;&gt;&gt;<span class="keyword">print</span> fixed_html</span><br></pre></td></tr></table></figure></p>
+<p><strong>输出结果为:</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class="country"&gt;</span><br><span class="line">&lt;li&gt;Area&lt;/li&gt;</span><br><span class="line">&lt;li&gt;Population&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h4><blockquote>
+<ul>
+<li>选择所有标签: <code>*</code></li>
+<li>选择&lt; a &gt;标签:<code>a</code> </li>
+<li>选择所有 class = “link”的元素: <code>.link</code></li>
+<li>选择classs = “link”的&lt; a &gt;标签: <code>a.link</code></li>
+<li>选择 id = “home”的&lt; a &gt;标签:<code>a#home</code></li>
+<li>选择父元素为&lt; a &gt;标签的所有&lt; span &gt;子标签:<code>a &gt; span</code></li>
+<li>选择&lt; a &gt;标签内部的所有&lt; span &gt; 标签: <code>a span</code></li>
+<li>选择 title属性为”Home”的所有&lt; span &gt;标签:<code>a [title=Home]</code> </li>
+</ul>
+</blockquote>
+<h4 id="Xpath"><a href="#Xpath" class="headerlink" title="Xpath"></a>Xpath</h4><blockquote>
+<ul>
+<li>选择所有标签: <code>//*</code></li>
+<li>选择&lt; a &gt;标签:<code>//a</code> </li>
+<li>选择所有 class = “link”的元素: <code>//*[contains(@class,&#39;link&#39;)]</code></li>
+<li>选择classs = “link”的&lt; a &gt;标签: <code>//a[contains(@class,&#39;link&#39;)]</code></li>
+<li>选择 id = “home”的&lt; a &gt;标签:<code>//*[@id=&#39;home&#39;]</code></li>
+<li>选择父元素为&lt; a &gt;标签的所有&lt; span &gt;子标签:<code>//a/apan</code></li>
+<li>选择&lt; a &gt;标签内部的所有&lt; span &gt; 标签: <code>a span</code></li>
+<li>选择 title属性为”Home”的所有&lt; span &gt;标签:<code>a [title=Home]</code> </li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="Scrapy"><a href="#Scrapy" class="headerlink" title="Scrapy"></a>Scrapy</h2><blockquote>
+<p>Scrapy是一个流行的网络爬虫框架,它拥有很多简化网站抓取的高级函数&gt;</p>
+</blockquote>
+<p><strong>安装:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Scrapy</span><br></pre></td></tr></table></figure></p>
+<p><strong>测试Scrapy是否成功安装:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scrapy -h</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/03/06/Python网络爬虫学习笔记/选区_004.png" alt="Alt text"></p>
+<h3 id="Scrapy的使用命令"><a href="#Scrapy的使用命令" class="headerlink" title="Scrapy的使用命令"></a>Scrapy的使用命令</h3><blockquote>
+<ul>
+<li><code>startproject</code>:创建一个新项目</li>
+<li><code>genspider</code>:根据模板生成一个新爬虫</li>
+<li><code>crawl</code>:执行爬虫</li>
+<li><code>shell</code>:启动交互式抓取控制台</li>
+</ul>
+</blockquote>
+<h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><p><strong>运行<code>startproject</code>生成项目<code>example</code>的默认结构:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scrapy startproject example</span><br></pre></td></tr></table></figure></p>
+<p><strong>生成的初始文件为:</strong><br><img src="/2018/03/06/Python网络爬虫学习笔记/选区_003.png" alt="Alt text"></p>
+<blockquote>
+<ul>
+<li><code>items.py</code>:该文件定义了待抓取域的模型</li>
+<li><code>settings.py</code>:该文件定义了用户代理,爬取延时等设置</li>
+<li><code>spider/</code>:该目录储存实际的爬虫代码</li>
+</ul>
+</blockquote>
+<h4 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h4><blockquote>
+<p>将<code>items.py</code>中的内容按需求改变</p>
+</blockquote>
+<p>此时我们改变为抓取<strong>国家</strong>和<strong>人口</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleItem</span><span class="params">(scrapy.Item)</span>:</span></span><br><span class="line">    name = scrapy.Field()</span><br><span class="line">    population = scrapy.Field()</span><br></pre></td></tr></table></figure></p>
+<h4 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h4><blockquote>
+<p>利用<code>genspider</code>命令传入<strong>爬虫名</strong>,<strong>域名</strong>和<strong>可选的模板</strong>,就可生成初始模板</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scrapy genspider country example.webscraping.com --template=crawl</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这行命令会使/example/spider中出现一个country.py文件</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountrySpider</span><span class="params">(CrawlSpider)</span>:</span></span><br><span class="line">    name = <span class="string">'country'</span></span><br><span class="line">    allowed_domains = [<span class="string">'example.webscraping.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://example.webscraping.com/'</span>]</span><br><span class="line"></span><br><span class="line">    rules = (</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">r'Items/'</span>), callback=<span class="string">'parse_item'</span>, follow=<span class="keyword">True</span>),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_item</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        i = &#123;&#125;</span><br><span class="line">        <span class="comment">#i['domain_id'] = response.xpath('//input[@id="sid"]/@value').extract()</span></span><br><span class="line">        <span class="comment">#i['name'] = response.xpath('//div[@id="name"]').extract()</span></span><br><span class="line">        <span class="comment">#i['description'] = response.xpath('//div[@id="description"]').extract()</span></span><br><span class="line">        <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>其中,有以下属性</strong></p>
+<ul>
+<li><code>name</code>:该属性为定义爬虫名称</li>
+<li><code>start_urls</code>:该属性定义了爬虫起始URL列表</li>
+<li><code>allowed_domains</code>:该属性定义了可爬取的域名列表.未定义则可爬取任何域名</li>
+<li><code>rules</code>:该属性为一个正则表达式集合,告知爬虫需要跟踪的链接</li>
+</ul>
+</blockquote>
+<h4 id="优化属性"><a href="#优化属性" class="headerlink" title="优化属性"></a>优化属性</h4><blockquote>
+<ul>
+<li>设定要<strong>爬取</strong>的网页<br>即改变rules中的属性,设定<code>deny=&#39;/user/&#39;</code>防止爬取用户登陆和注册表单<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rules = (</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">'/index/'</span>, deny=<span class="string">'/user/'</span>),follow=<span class="keyword">True</span>),</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">'/view/'</span>, deny=<span class="string">'/user/'</span>), callback=<span class="string">'parse_item'</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>设定爬虫对同时对一个域名只能发起一次请求</li>
+<li>两次请求之间延迟5秒</li>
+</ul>
+</blockquote>
+<p>在<code>setting.py</code>中加入以下两行代码:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CONCURRENT_REQUESTS_PER_DOMAIN = <span class="number">1</span></span><br><span class="line">DOWNLOAD_DELAY = <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="测试爬虫"><a href="#测试爬虫" class="headerlink" title="测试爬虫"></a>测试爬虫</h4><p>在运行过<code>scrapy</code>的情况下在命令行中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scrapy crawl country</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>此时,终端中显示的信息为所有信息,如果要只看一部分信息的话,在代码最后加上<code>-s LOG_LEVEL= ~</code><br><code>~</code>代表诸如<code>ERROR</code>,<code>INFO</code>或者<code>DEBUG</code>等信息模式</p>
+</blockquote>
+<p>实际应用为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ scrapy crawl country -s LOG_LEVEL=ERROR</span><br><span class="line">$ scrapy crawl country -s LOG_LEVEL=DEBUG</span><br></pre></td></tr></table></figure></p>
+<p>以下为<code>LOG_LEVEL=DEBUG</code>情况下返回的信息:<br><img src="/2018/03/06/Python网络爬虫学习笔记/选区_005.png" alt="Alt text"></p>
 
       
 
@@ -255,11 +361,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Scrapy</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Beautiful Soup</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
         		</li>
       		
 		</ul>
@@ -315,7 +425,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/04/Scrapy框架开发爬虫流程/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/06/Python网络爬虫学习笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -329,15 +439,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/05/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/06/CSS选择器和Xpath学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hello World
+          CSS选择器和Xpath学习笔记
         
       </div>
     </a>
   
+  
+    <a href="/2018/03/05/Python内置函数zip-介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python内置函数zip()介绍</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -366,8 +481,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2018/03/04/Scrapy框架开发爬虫流程/", 
-    sourceId: "Scrapy框架开发爬虫流程",
+    url: "http://yoursite.com/2018/03/06/Python网络爬虫学习笔记/", 
+    sourceId: "Python网络爬虫学习笔记",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

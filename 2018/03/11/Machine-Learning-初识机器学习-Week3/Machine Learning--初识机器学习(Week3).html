@@ -1,0 +1,183 @@
+<h1 id="Machine-Learning–初识机器学习-Week3"><a href="#Machine-Learning–初识机器学习-Week3" class="headerlink" title="Machine Learning–初识机器学习(Week3)"></a>Machine Learning–初识机器学习(Week3)</h1><p>[TOC]</p>
+<h2 id="分类问题-Classification"><a href="#分类问题-Classification" class="headerlink" title="分类问题(Classification)"></a>分类问题(Classification)</h2><table>
+<thead>
+<tr>
+<th>推测值<code>X</code></th>
+<th>X&gt;=0.5</th>
+<th>X&lt;0.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输出值 <code>Y</code></td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这样的方法在某些情况下并不好用，因为有时候一个异常值会大大影响最后计算出的值</p>
+</blockquote>
+<p>为了解决这样的问题，我们将公式变换一下：<br>$$<br>\begin{align<em>}&amp; h_\theta (x) = g ( \theta^T x ) \newline \newline&amp; z = \theta^T x \newline&amp; g(z) = \dfrac{1}{1 + e^{-z}}\end{align</em>}<br>$$<br>这样的话，生成的值就会落在<code>0~1</code>之间，如图：</p>
+<p><img src="D:\ML\Week3\Logistic_function.png" alt="Logistic_function"></p>
+<p>当然在概论论中:<br>$$<br>\begin{align<em>}&amp; h_\theta(x) = P(y=1 | x ; \theta) = 1 - P(y=0 | x ; \theta) \newline&amp; P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align</em>}<br>$$</p>
+<blockquote>
+<p>那么问题来了，我们要这个<code>hθ(x)</code>有什么用呢？</p>
+<p>这就引出了<code>决策边界(Decision Boundary)</code>这个概念了</p>
+</blockquote>
+<p>首先对上式进行分析<br>$$<br>\begin{align<em>}&amp; g(z) \geq 0.5 \newline&amp; when \; z \geq 0\end{align</em>}<br>$$<br>Remember<br>$$<br>\begin{align<em>}z=0, e^{0}=1 \Rightarrow g(z)=1/2\newline z \to \infty, e^{-\infty} \to 0 \Rightarrow g(z)=1 \newline z \to -\infty, e^{\infty}\to \infty \Rightarrow g(z)=0 \end{align</em>}<br>$$<br>所以在数学计算中，我们可以这么表达：<br>$$<br>\begin{align<em>}&amp; \theta^T x \geq 0 \Rightarrow y = 1 \newline&amp; \theta^T x &lt; 0 \Rightarrow y = 0 \newline\end{align</em>}<br>$$<br><code>决策边界(Decision Boundary)</code>就是将<code>y=1</code>和<code>y=0</code>分开的那条线</p>
+<blockquote>
+<p>Example:<br>$$<br>\begin{align<em>}&amp; \theta = \begin{bmatrix}5 \newline -1 \newline 0\end{bmatrix} \newline &amp; y = 1 \; if \; 5 + (-1) x_1 + 0 x_2 \geq 0 \newline &amp; 5 - x_1 \geq 0 \newline &amp; - x_1 \geq -5 \newline&amp; x_1 \leq 5 \newline \end{align</em>}<br>$$<br>该例子中，X1 = 5就是决策边界</p>
+<table>
+<thead>
+<tr>
+<th>X1 &lt;= 5</th>
+<th>X1&gt;5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Y = 1</td>
+<td>Y = 0</td>
+</tr>
+</tbody>
+</table>
+<p>当然，决策边界也可以是曲线</p>
+<p>e.g.<br>$$<br>z = \theta_0 + \theta_1 x_1^2 +\theta_2 x_2^2<br>$$</p>
+</blockquote>
+<h2 id="逻辑回归模型-Logistic-Regression-Model"><a href="#逻辑回归模型-Logistic-Regression-Model" class="headerlink" title="逻辑回归模型(Logistic Regression Model)"></a>逻辑回归模型(Logistic Regression Model)</h2><hr>
+<h3 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h3><blockquote>
+<p>在逻辑回归中，我们不能用和线性回归相同的那个Cost Function了，如果使用相同的，会造成输出值呈波浪状，无法收敛</p>
+</blockquote>
+<p>逻辑回归模型的<code>Cost Function</code>:<br>$$<br>\begin{align<em>}&amp; J(\theta) = \dfrac{1}{m} \sum_{i=1}^m \mathrm{Cost}(h_\theta(x^{(i)}),y^{(i)}) \newline &amp; \mathrm{Cost}(h_\theta(x),y) = -\log(h_\theta(x)) \; &amp; \text{if y = 1} \newline &amp; \mathrm{Cost}(h_\theta(x),y) = -\log(1-h_\theta(x)) \; &amp; \text{if y = 0}\end{align</em>}<br>$$<br><img src="D:\ML\Week3\Logistic_regression_cost_function_positive_class.png" alt="Logistic_regression_cost_function_positive_class"></p>
+<p><img src="D:\ML\Week3\Logistic_regression_cost_function_negative_class.png" alt="Logistic_regression_cost_function_negative_class"></p>
+<blockquote>
+<p>$$<br>\begin{align<em>}&amp; \mathrm{Cost}(h_\theta(x),y) = 0 \text{ if } h_\theta(x) = y \newline &amp; \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_\theta(x) \rightarrow 1 \newline &amp; \mathrm{Cost}(h_\theta(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_\theta(x) \rightarrow 0 \newline \end{align</em>}<br>$$</p>
+</blockquote>
+<p>而在下式中，我们更是将这两个式子融为一体：<br>$$<br>\mathrm{Cost}(h_\theta(x),y) = - y \; \log(h_\theta(x)) - (1 - y) \log(1 - h_\theta(x))<br>$$<br>相应的Cost Function为：<br>$$<br>J(\theta) = - \frac{1}{m} \displaystyle \sum_{i=1}^m [y^{(i)}\log (h_\theta (x^{(i)})) + (1 - y^{(i)})\log (1 - h_\theta(x^{(i)}))]<br>$$<br>将其向量化之后得到：<br>$$<br>\begin{align<em>} &amp; h = g(X\theta)\newline &amp; J(\theta) = \frac{1}{m} \cdot \left(-y^{T}\log(h)-(1-y)^{T}\log(1-h)\right) \end{align</em>}<br>$$</p>
+<h3 id="梯度下降-Gradient-Descent"><a href="#梯度下降-Gradient-Descent" class="headerlink" title="梯度下降(Gradient Descent)"></a>梯度下降(Gradient Descent)</h3><blockquote>
+<p>一般来说，梯度下降的方法为：<br>$$<br>\begin{align<em>}&amp; Repeat \; \lbrace \newline &amp; \; \theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j}J(\theta) \newline &amp; \rbrace\end{align</em>}<br>$$</p>
+</blockquote>
+<p>计算之后，上式可化为：<br>$$<br>\begin{align<em>} &amp; Repeat \; \lbrace \newline &amp; \; \theta_j := \theta_j - \frac{\alpha}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \newline &amp; \rbrace \end{align</em>}<br>$$</p>
+<blockquote>
+<p>它的向量化表达式为：<br>$$<br>\theta := \theta - \frac{\alpha}{m} X^{T} (g(X \theta ) - \vec{y})<br>$$</p>
+</blockquote>
+<h3 id="更先进的算法-Advanced-Optimization"><a href="#更先进的算法-Advanced-Optimization" class="headerlink" title="更先进的算法(Advanced Optimization)"></a>更先进的算法(Advanced Optimization)</h3><blockquote>
+<ul>
+<li>Conjugate gradient</li>
+<li>BFGS</li>
+<li>L-BFGS</li>
+</ul>
+</blockquote>
+<p>首先我们需要写一个函数来计算出与θ相关的两个量<br>$$<br>\begin{align<em>} &amp; J(\theta) \newline &amp; \dfrac{\partial}{\partial \theta_j}J(\theta)\end{align</em>}<br>$$<br>为此我们可以先写出一个返回值为它们两个的函数</p>
+<pre><code class="matlab"><span class="function"><span class="keyword">function</span> <span class="params">[jVal, gradient]</span> = <span class="title">costFunction</span><span class="params">(theta)</span></span>
+  jVal = [...code to compute J(theta)...];
+  gradient = [...code to compute derivative of J(theta)...];
+<span class="keyword">end</span>
+</code></pre>
+<p>之后我们可以使用Matlab自带的<code>fminunc()</code>函数计算相关值</p>
+<pre><code class="matlab">options = optimset(<span class="string">'GradObj'</span>, <span class="string">'on'</span>, <span class="string">'MaxIter'</span>, <span class="number">100</span>);
+initialTheta = <span class="built_in">zeros</span>(<span class="number">2</span>,<span class="number">1</span>);
+   [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+</code></pre>
+<h2 id="多类别分类-Multiclass-Classification-One-vs-all"><a href="#多类别分类-Multiclass-Classification-One-vs-all" class="headerlink" title="多类别分类(Multiclass Classification: One-vs-all)"></a>多类别分类(Multiclass Classification: One-vs-all)</h2><hr>
+<blockquote>
+<p>当我们需要处理的分类问题拥有超过两种类别时，我们用y = {0,1,…,n}代替y = {0,1}</p>
+</blockquote>
+<p>$$<br>\begin{align<em>}&amp; y \in \lbrace0, 1 … n\rbrace \newline&amp; h_\theta^{(0)}(x) = P(y = 0 | x ; \theta) \newline&amp; h_\theta^{(1)}(x) = P(y = 1 | x ; \theta) \newline&amp; \cdots \newline&amp; h_\theta^{(n)}(x) = P(y = n | x ; \theta) \newline&amp; \mathrm{prediction} = \max_i( h_\theta ^{(i)}(x) )\newline\end{align</em>}<br>$$</p>
+<blockquote>
+<p>其原理为：</p>
+<p>我们在每个分类y = i中，我们将所有样本分为Xi和非Xi，并将其拓展到每个分类之中</p>
+</blockquote>
+<p><img src="D:\ML\Week3\Screenshot-2016-11-13-10.52.29.png" alt="Screenshot-2016-11-13-10.52.29"></p>
+<h2 id="过度拟合-Overfitting"><a href="#过度拟合-Overfitting" class="headerlink" title="过度拟合(Overfitting)"></a>过度拟合(Overfitting)</h2><hr>
+<blockquote>
+<p>在取得预测曲线时，由于我们选取的特征变量不同，可能导致三种情况</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">欠拟合</th>
+<th style="text-align:center">正常</th>
+<th style="text-align:center">过拟合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="D:\ML\Week3\Screenshot-2016-11-15-00.23.30.png" alt="Screenshot-2016-11-15-00.23.30"></p>
+<p>在上图中，<code>欠拟合</code>可能为y = θ0+θ1X</p>
+<p>​            <code>正常</code>可能为y = θ0+θ1X+θ2X²</p>
+<p>​            <code>过拟合</code>可能为y =  θ0+θ1X+θ2X²+θ3X³</p>
+<blockquote>
+<p>为解决上述问题，我们通常采用以下两种方法：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>减少特征</th>
+<th>正则化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人为选择应该留下的特征</td>
+<td>留下所有特征，但减小其权重</td>
+</tr>
+<tr>
+<td>利用模型选择算法</td>
+<td>正则化在特征多且影响小时效果好</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Cost-Function-1"><a href="#Cost-Function-1" class="headerlink" title="Cost Function"></a>Cost Function</h3><blockquote>
+<p>如果我们发现输出图像已经是过拟合了，那么我们就可以以增加它们的代价(<code>cost</code>)来降低它们的权重</p>
+</blockquote>
+<p>例如：<br>$$<br>\theta_0 + \theta_1x + \theta_2x^2 + \theta_3x^3 + \theta_4x^4<br>$$<br>为了减少<code>θ3x³</code>和<code>θ4x⁴</code>的影响，我们调整Cost Function为：<br>$$<br>min_\theta\ \dfrac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + 1000\cdot\theta_3^2 + 1000\cdot\theta_4^2<br>$$</p>
+<blockquote>
+<p>这样在迭代时，<code>θ3</code>和<code>θ4</code>会逐渐趋于0，<code>θ3x³</code>和<code>θ4x⁴</code>的影响也会减小到一定程度</p>
+</blockquote>
+<p><img src="D:\ML\Week3\Screenshot-2016-11-15-08.53.32.png" alt="Screenshot-2016-11-15-08.53.32"></p>
+<p>当我们拥有很多特征时，便可以将正则化θ这个任务简化为一个方程：<br>$$<br>min_\theta\ \dfrac{1}{2m}\  \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda\ \sum_{j=1}^n \theta_j^2<br>$$</p>
+<blockquote>
+<p>其中<code>λ</code>被称作<code>正则化参数</code>(Regularization Parameter)</p>
+<ul>
+<li>当然，当<code>λ</code>取过大时，可能造成欠拟合</li>
+</ul>
+</blockquote>
+<h2 id="线性回归正则化-Regularized-Linear-Regression"><a href="#线性回归正则化-Regularized-Linear-Regression" class="headerlink" title="线性回归正则化(Regularized Linear Regression)"></a>线性回归正则化(Regularized Linear Regression)</h2><blockquote>
+<p>线性回归和逻辑回归，都是可以进行正则化操作的</p>
+</blockquote>
+<p>首先我们来讲线性回归，对它来说，分为梯度下降法和正规方程法</p>
+<blockquote>
+<p>首先，梯度下降，我们先把<code>θ0</code>从中分离开来<br>$$<br>\begin{align<em>} &amp; \text{Repeat}\ \lbrace \newline &amp; \ \ \ \ \theta_0 := \theta_0 - \alpha\ \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_0^{(i)} \newline &amp; \ \ \ \ \theta_j := \theta_j - \alpha\ \left[ \left( \frac{1}{m}\ \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)} \right) + \frac{\lambda}{m}\theta_j \right] &amp;\ \ \ \ \ \ \ \ \ \ j \in \lbrace 1,2…n\rbrace\newline &amp; \rbrace \end{align</em>}<br>$$</p>
+</blockquote>
+<blockquote>
+<p>其中<code>λ/m*θj</code>代表这我们的正则化操作，同时将上者合二为一得：<br>$$<br>\theta_j := \theta_j(1 - \alpha\frac{\lambda}{m}) - \alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}<br>$$</p>
+</blockquote>
+<p>然后再用正规方程来表示线性回归</p>
+<blockquote>
+<p> 在正规方程中，我们只要加一个项就可以完成正则化了<br>$$<br>\begin{align<em>}&amp; \theta = \left( X^TX + \lambda \cdot L \right)^{-1} X^Ty \newline&amp; \text{where}\ \ L = \begin{bmatrix} 0 &amp; &amp; &amp; &amp; \newline &amp; 1 &amp; &amp; &amp; \newline &amp; &amp; 1 &amp; &amp; \newline &amp; &amp; &amp; \ddots &amp; \newline &amp; &amp; &amp; &amp; 1 \newline\end{bmatrix}\end{align</em>}<br>$$<br>L是一个左上是0其余元素均为1的(n+1)*(n+1)矩阵</p>
+</blockquote>
+<h2 id="逻辑回归正则化-Regularized-Logistic-Regression"><a href="#逻辑回归正则化-Regularized-Logistic-Regression" class="headerlink" title="逻辑回归正则化(Regularized Logistic Regression)"></a>逻辑回归正则化(Regularized Logistic Regression)</h2><p>通过正则化逻辑回归，我们可以有效地避免过拟合的出现，如下图，粉色的分类方法就更加科学：</p>
+<blockquote>
+<p><img src="D:\ML\Week3\Od9mobDaEeaCrQqTpeD5ng_4f5e9c71d1aa285c1152ed4262f019c1_Screenshot-2016-11-22-09.31.21.png" alt="Od9"></p>
+</blockquote>
+<h3 id="Cost-Function-2"><a href="#Cost-Function-2" class="headerlink" title="Cost Function"></a>Cost Function</h3><p>会看一下我们之前的逻辑回归的代价函数：</p>
+<blockquote>
+<p>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)})) \large]<br>$$</p>
+</blockquote>
+<p>我们对此做出的调整就是在它最后加上了一项：</p>
+<blockquote>
+<p>$$<br>J(\theta) = - \frac{1}{m} \sum_{i=1}^m \large[ y^{(i)}\ \log (h_\theta (x^{(i)})) + (1 - y^{(i)})\ \log (1 - h_\theta(x^{(i)}))\large] + \frac{\lambda}{2m}\sum_{j=1}^n \theta_j^2<br>$$</p>
+</blockquote>
+<p>在新加入的式子中，<br>$$<br>\sum_{j=1}^n \theta_j^2<br>$$<br>意味着明确地排除偏项(explicitly exclude the bias term)<code>θ0</code></p>
+<blockquote>
+<p>举个例子：如果我们有一个0到n的向量θ，该算式计算时就跳过了第0项，直接计算1到n项</p>
+</blockquote>
+<p>因此，在计算时我们要持续地上传两个值：</p>
+<p><img src="D:\ML\Week3\dfHLC70SEea4MxKdJPaTxA_306de28804a7467f7d84da0fe3ee9c7b_Screen-Shot-2016-12-07-at-10.49.02-PM.png" alt="dfHLC70SEea4MxKdJPaTxA_306de28804a7467f7d84da0fe3ee9c7b_Screen-Shot-2016-12-07-at-10.49.02-PM"></p>

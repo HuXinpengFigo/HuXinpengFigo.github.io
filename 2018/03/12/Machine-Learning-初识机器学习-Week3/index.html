@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/index.html">
 <meta property="og:site_name" content="Figo">
 <meta property="og:description" content="分类问题(Classification)">
-<meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Logistic_function.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Logisticfunction.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Logistic_regression_cost_function_positive_class.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Logistic_regression_cost_function_negative_class.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Screenshot-2016-11-13-10.52.29.png">
@@ -23,11 +23,11 @@
 <meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Screenshot-2016-11-15-08.53.32.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Od9mobDaEeaCrQqTpeD5ng_4f5e9c71d1aa285c1152ed4262f019c1_Screenshot-2016-11-22-09.31.21.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/dfHLC70SEea4MxKdJPaTxA_306de28804a7467f7d84da0fe3ee9c7b_Screen-Shot-2016-12-07-at-10.49.02-PM.png">
-<meta property="og:updated_time" content="2018-03-12T13:41:20.691Z">
+<meta property="og:updated_time" content="2018-03-14T11:05:01.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine-Learning-初识机器学习-Week3">
 <meta name="twitter:description" content="分类问题(Classification)">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Logistic_function.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/12/Machine-Learning-初识机器学习-Week3/Logisticfunction.png">
   
     <link rel="alternative" href="/atom.xml" title="Figo" type="application/atom+xml">
   
@@ -207,7 +207,7 @@
 </blockquote>
 <p>为了解决这样的问题，我们将公式变换一下：</p>
 <script type="math/tex; mode=display">\begin{align*}& h_\theta (x) = g ( \theta^T x ) \newline \newline& z = \theta^T x \newline& g(z) = \dfrac{1}{1 + e^{-z}}\end{align*}</script><p>这样的话，生成的值就会落在<code>0~1</code>之间，如图：</p>
-<p><img src="/2018/03/12/Machine-Learning-初识机器学习-Week3/Logistic_function.png" alt="Logistic_function"></p>
+<p><img src="/2018/03/12/Machine-Learning-初识机器学习-Week3/Logisticfunction.png" alt="Logisticfunction"></p>
 <p>当然在概论论中:</p>
 <script type="math/tex; mode=display">\begin{align*}& h_\theta(x) = P(y=1 | x ; \theta) = 1 - P(y=0 | x ; \theta) \newline& P(y = 0 | x;\theta) + P(y = 1 | x ; \theta) = 1\end{align*}</script><blockquote>
 <p>那么问题来了，我们要这个<code>hθ(x)</code>有什么用呢？</p>

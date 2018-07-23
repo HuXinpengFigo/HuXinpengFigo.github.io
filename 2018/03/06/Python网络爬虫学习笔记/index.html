@@ -186,10 +186,10 @@
 <p>通常<strong>robots.txt</strong>这样的文件在<code>网站域名/robots.txt</code>中获取,比如:</p>
 <blockquote>
 <p>访问:<code>http://example.webscraping.com/robots.txt</code><br>获取<strong>webscring</strong>的<em>robots.txt</em><br><a id="more"></a></p>
+<h3 id="识别网站所用的模块"><a href="#识别网站所用的模块" class="headerlink" title="识别网站所用的模块"></a>识别网站所用的模块</h3><p><strong>利用命令行安装builtwith:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install builtwith</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>###识别网站所用的模块<br><strong>利用命令行安装builtwith:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install builtwith</span><br></pre></td></tr></table></figure></p>
 <p><strong>使用方法:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;python</span><br><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> builtwith</span><br><span class="line">&gt;&gt;&gt;builtwith(<span class="string">'http://example.webscraping.com'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>###寻找网站所有者<br><strong>安装whois:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python-whois</span><br></pre></td></tr></table></figure></p>
+<h3 id="寻找网站所有者"><a href="#寻找网站所有者" class="headerlink" title="寻找网站所有者"></a>寻找网站所有者</h3><p><strong>安装whois:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python-whois</span><br></pre></td></tr></table></figure></p>
 <p><strong>使用方法:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">import</span> whois</span><br><span class="line">&gt;&gt;&gt;<span class="keyword">print</span> whois.whois(<span class="string">'appspot.com'</span>)</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h2 id="编写爬虫"><a href="#编写爬虫" class="headerlink" title="编写爬虫"></a>编写爬虫</h2><blockquote>
@@ -215,11 +215,8 @@
 <h2 id="数据抓取"><a href="#数据抓取" class="headerlink" title="数据抓取"></a>数据抓取</h2><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><blockquote>
 <ul>
 <li>利用<code>download()</code>函数将<strong>html</strong>下载下来</li>
-<li>然后用<code>re.findall()</code>函数将匹配<td>的元素筛选出来</td></li>
+<li>然后用<code>re.findall()</code>函数将匹配<td>的元素筛选出来<h3 id="Beautiful-Soup"><a href="#Beautiful-Soup" class="headerlink" title="Beautiful Soup"></a>Beautiful Soup</h3>Beautiful Soup是一个解析网页的Python模块</td></li>
 </ul>
-</blockquote>
-<h3 id="Beautiful-Soup"><a href="#Beautiful-Soup" class="headerlink" title="Beautiful Soup"></a>Beautiful Soup</h3><blockquote>
-<p>Beautiful Soup是一个解析网页的Python模块</p>
 </blockquote>
 <p><strong>安装:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br></pre></td></tr></table></figure></p>
 <p><strong>Beautiful Soup补全HTML格式:</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">&gt;&gt;&gt;broken_html = <span class="string">'&lt;ul class=country&gt;&lt;li&gt;Area&lt;li&gt;Population&lt;/ul&gt;'</span></span><br><span class="line">&gt;&gt;&gt;soup = BeautifulSoup(broken_html, <span class="string">'html.parser'</span>)</span><br><span class="line">&gt;&gt;&gt;fixed_html = soup.prettify()</span><br><span class="line">&gt;&gt;&gt;<span class="keyword">print</span> fixed_html</span><br></pre></td></tr></table></figure></p>
@@ -274,11 +271,8 @@
 <ul>
 <li><code>items.py</code>:该文件定义了待抓取域的模型</li>
 <li><code>settings.py</code>:该文件定义了用户代理,爬取延时等设置</li>
-<li><code>spider/</code>:该目录储存实际的爬虫代码</li>
+<li><code>spider/</code>:该目录储存实际的爬虫代码<h4 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h4>将<code>items.py</code>中的内容按需求改变</li>
 </ul>
-</blockquote>
-<h4 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h4><blockquote>
-<p>将<code>items.py</code>中的内容按需求改变</p>
 </blockquote>
 <p>此时我们改变为抓取<strong>国家</strong>和<strong>人口</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleItem</span><span class="params">(scrapy.Item)</span>:</span></span><br><span class="line">    name = scrapy.Field()</span><br><span class="line">    population = scrapy.Field()</span><br></pre></td></tr></table></figure></p>
 <h4 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h4><blockquote>
@@ -300,13 +294,11 @@
 </blockquote>
 <h4 id="优化属性"><a href="#优化属性" class="headerlink" title="优化属性"></a>优化属性</h4><blockquote>
 <ul>
-<li>设定要<strong>爬取</strong>的网页<br>即改变rules中的属性,设定<code>deny=&#39;/user/&#39;</code>防止爬取用户登陆和注册表单<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rules = (</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">'/index/'</span>, deny=<span class="string">'/user/'</span>),follow=<span class="keyword">True</span>),</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">'/view/'</span>, deny=<span class="string">'/user/'</span>), callback=<span class="string">'parse_item'</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<li><p>设定要<strong>爬取</strong>的网页<br>即改变rules中的属性,设定<code>deny=&#39;/user/&#39;</code>防止爬取用户登陆和注册表单</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rules = (</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">'/index/'</span>, deny=<span class="string">'/user/'</span>),follow=<span class="keyword">True</span>),</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">'/view/'</span>, deny=<span class="string">'/user/'</span>), callback=<span class="string">'parse_item'</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>设定爬虫对同时对一个域名只能发起一次请求</li>
+<li><p>设定爬虫对同时对一个域名只能发起一次请求</p>
+</li>
 <li>两次请求之间延迟5秒</li>
 </ul>
 </blockquote>
@@ -662,6 +654,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
               </li>
              
               <li class="article-tag-list-item">

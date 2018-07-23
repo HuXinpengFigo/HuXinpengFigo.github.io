@@ -151,6 +151,144 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-TensorFlow-基础架构学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/23/TensorFlow-基础架构学习/">TensorFlow 基础架构学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/23/TensorFlow-基础架构学习/" class="archive-article-date">
+  	<time datetime="2018-07-23T07:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="计算图纸"><a href="#计算图纸" class="headerlink" title="计算图纸"></a>计算图纸</h3><blockquote>
+<p>Tensorflow 首先要定义神经网络的结构, 然后再把数据放入结构当中去运算和 training</p>
+</blockquote>
+<p><img src="/2018/07/23/TensorFlow-基础架构学习/tensors_flowing.gif" alt="tensor"></p>
+<blockquote>
+<p>因为TensorFlow是采用数据流图<code>data</code> <code>flow</code> <code>graphs</code>来计算, 所以首先我们得创建一个数<br>据流流图, 然后再将我们的数据（数据以张量<code>tensor</code>的形式存在）放在数据流图中计算. 节点<br><code>Nodes</code>在图中表示数学操作,图中的线<code>edges</code>则表示在节点间相互联系的多维数据数组, 即张<br>量<code>tensor</code>. 训练模型时<code>tensor</code>会不断的从数据流图中的一个节点flow到另一节点, 这就是<br>TensorFlow名字的由来.</p>
+</blockquote>
+<h3 id="Tensor张量意义"><a href="#Tensor张量意义" class="headerlink" title="Tensor张量意义"></a>Tensor张量意义</h3><blockquote>
+<p>张量(<code>Tensor</code>):</p>
+<ul>
+<li>张量有多种,零阶张量为<code>纯量</code>或<code>标量</code>(<code>scalar</code>) 也就是一个数值.比如 <code>[1]</code></li>
+<li>一阶张量为<code>向量</code>(<code>vector</code>), 比如 一维的 <code>[1, 2, 3]</code></li>
+<li>二阶张量为<code>矩阵</code>(<code>matrix</code>), 比如 二维的 <code>[[1, 2, 3],[4, 5, 6],[7, 8, 9]]</code></li>
+<li>以此类推, 还有三阶,三维的 …</li>
+</ul>
+</blockquote>
+<h3 id="GradientDecent例子"><a href="#GradientDecent例子" class="headerlink" title="GradientDecent例子"></a>GradientDecent例子</h3><blockquote>
+<p>Tensorflow 是非常重视结构的, 我们得建立好了神经网络的结构, 才能将数字放进去, 运行这个结构.</p>
+</blockquote>
+<h4 id="创建数据"><a href="#创建数据" class="headerlink" title="创建数据"></a>创建数据</h4><blockquote>
+<p>首先, 我们这次需要加载<code>tensorflow</code>和<code>numpy</code>两个模块, 并且使用<code>numpy</code>来创建我们的数据.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># create data</span></span><br><span class="line">x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">y_data = x_data*<span class="number">0.1</span> + <span class="number">0.3</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中, 我们用 <code>tf.Variable</code> 来创建描述 <code>y</code> 的参数. 我们可以把 <code>y_data = x_data*0.1 + 0.3</code> 想象成 <code>y=Weights * x + biases</code>, 然后神经网络也就是学着把<code>Weights</code>变成<em>0.1</em>, <code>biases</code>变成<em>0.3</em>.</p>
+</blockquote>
+<h4 id="搭建模型"><a href="#搭建模型" class="headerlink" title="搭建模型"></a>搭建模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Weights = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">biases = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">y = Weights*x_data + biases</span><br></pre></td></tr></table></figure>
+<h4 id="计算误差"><a href="#计算误差" class="headerlink" title="计算误差"></a>计算误差</h4><blockquote>
+<p>接着就是计算 <code>y</code> 和 <code>y_data</code> 的误差:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loss = tf.reduce_mean(tf.square(y-y_data))</span><br></pre></td></tr></table></figure>
+<h4 id="传播误差"><a href="#传播误差" class="headerlink" title="传播误差"></a>传播误差</h4><blockquote>
+<p>反向传递误差的工作就教给<code>optimizer</code>了, 我们使用的误差传递方法是梯度下降法: <code>Gradient Descent</code> 让后我们使用 <code>optimizer</code> 来进行参数的更新.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train = optimizer.minimize(loss)</span><br></pre></td></tr></table></figure>
+<h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><blockquote>
+<p>到目前为止, 我们只是建立了神经网络的结构, 还没有使用这个结构. 在使用这个结构之前, 我们必须先初始化所有之前定义的<code>Variable</code>, 所以这一步是很重要的!</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># init = tf.initialize_all_variables() # tf 马上就要废弃这种写法</span></span><br><span class="line">init = tf.global_variables_initializer()  <span class="comment"># 替换成这样就好</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接着,我们再创建会话 <code>Session</code>. 我们会在下一节中详细讲解 Session. 我们用 <code>Session</code> 来执行 <code>init</code> 初始化步骤. 并且, 用 <code>Session</code> 来 <code>run</code> 每一次 training 的数据. 逐步提升神经网络的预测准确性.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)          <span class="comment"># Very important</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">201</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step % <span class="number">20</span> == <span class="number">0</span>:</span><br><span class="line">        print(step, sess.run(Weights), sess.run(biases))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果如图:</p>
+<p><img src="/2018/07/23/TensorFlow-基础架构学习/%E9%80%89%E5%8C%BA_026.png" alt="expG"></p>
+</blockquote>
+<hr>
+<h3 id="Placeholder-传入值"><a href="#Placeholder-传入值" class="headerlink" title="Placeholder 传入值"></a>Placeholder 传入值</h3><blockquote>
+<p><code>placeholder</code> 是 Tensorflow 中的占位符，暂时储存变量</p>
+<p>类似形参,规定类型而外部传值</p>
+<p>Tensorflow 如果想要从外部传入data, 那就需要用到 <code>tf.placeholder()</code>, 然后以这种形式传输数据 <code>sess.run(***, feed_dict={input: **})</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment">#在 Tensorflow 中需要定义 placeholder 的 type ，一般为 float32 形式</span></span><br><span class="line">input1 = tf.placeholder(tf.float32)</span><br><span class="line">input2 = tf.placeholder(tf.float32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># mul = multiply 是将input1和input2 做乘法运算，并输出为 output </span></span><br><span class="line">ouput = tf.multiply(input1, input2)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来, 传值的工作交给了 <code>sess.run()</code> , 需要传入的值放在了<code>feed_dict={}</code> 并一一对应每一个 <code>input</code>.<code>placeholder</code> 与 <code>feed_dict={}</code> 是绑定在一起出现的</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(ouput, feed_dict=&#123;input1: [<span class="number">7.</span>], input2: [<span class="number">2.</span>]&#125;))</span><br><span class="line"><span class="comment"># result:[ 14.]</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">神经网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/23/TensorFlow-基础架构学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Machine-Learning-初识机器学习-Week3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -874,91 +1012,10 @@
 
 
   
-    <article id="post-Scrapy框架开发爬虫流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/Scrapy框架开发爬虫流程/">Scrapy框架开发爬虫流程</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/04/Scrapy框架开发爬虫流程/" class="archive-article-date">
-  	<time datetime="2018-03-04T11:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<ul>
-<li>准备好<code>chrome</code>,便于查看<code>Xpath</code>地址</li>
-<li>配置好<code>Pycharm</code>,将<code>Scrapy</code>内置其中</li>
-</ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/03/04/Scrapy框架开发爬虫流程/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Scrapy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/04/Scrapy框架开发爬虫流程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1106,6 +1163,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -151,6 +151,161 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Ubuntu-16-04简易美化教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/23/Ubuntu-16-04简易美化教程/">Ubuntu 16.04简易美化教程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/23/Ubuntu-16-04简易美化教程/" class="archive-article-date">
+  	<time datetime="2018-07-23T08:19:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Ubuntu-16-04简易美化教程"><a href="#Ubuntu-16-04简易美化教程" class="headerlink" title="Ubuntu 16.04简易美化教程"></a>Ubuntu 16.04简易美化教程</h1><p><img src="/2018/07/23/Ubuntu-16-04简易美化教程/1283666-20171125170102296-1339172656.png" alt=""></p>
+<h3 id="由于工作与学习的原因笔者安装了Ubuntu-16-04系统，但是安装以后却没有什么使用的热情，思前想后应该是拜Ubuntu-16-04臃肿的系统UI所致，于是便萌生了美化这个新系统的想法，现在我来将这个方法付诸实践"><a href="#由于工作与学习的原因笔者安装了Ubuntu-16-04系统，但是安装以后却没有什么使用的热情，思前想后应该是拜Ubuntu-16-04臃肿的系统UI所致，于是便萌生了美化这个新系统的想法，现在我来将这个方法付诸实践" class="headerlink" title="由于工作与学习的原因笔者安装了Ubuntu 16.04系统，但是安装以后却没有什么使用的热情，思前想后应该是拜Ubuntu 16.04臃肿的系统UI所致，于是便萌生了美化这个新系统的想法，现在我来将这个方法付诸实践"></a>由于工作与学习的原因笔者安装了Ubuntu 16.04系统，但是安装以后却没有什么使用的热情，思前想后应该是拜Ubuntu 16.04臃肿的系统UI所致，于是便萌生了美化这个新系统的想法，现在我来将这个方法付诸实践</h3><hr>
+<h3 id="接下来我们来看看我们需要在Ubuntu中安装的软件"><a href="#接下来我们来看看我们需要在Ubuntu中安装的软件" class="headerlink" title="接下来我们来看看我们需要在Ubuntu中安装的软件"></a>接下来我们来看看我们需要在Ubuntu中安装的软件</h3><blockquote>
+<ul>
+<li>unity-tweak-tool</li>
+<li>Flatabulous主题</li>
+<li>Ultra-flat图标</li>
+</ul>
+</blockquote>
+<h2 id="首先，安装-unity-tweak-tool："><a href="#首先，安装-unity-tweak-tool：" class="headerlink" title="首先，安装 unity-tweak-tool："></a>首先，安装 unity-tweak-tool：</h2><p>  利用 <strong>Ctrl+Alt+T</strong> 打开Ubuntu的 <strong>终端 </strong> ，输入以下命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install unity-tweak-tool</span><br></pre></td></tr></table></figure>
+<p>  成功安装完后的界面是这样的：</p>
+<p> <img src="/2018/07/23/Ubuntu-16-04简易美化教程/1283666-20171125165508843-1081937289.png" alt=""></p>
+<h2 id="接下来，我们来安装Flatabulous主题："><a href="#接下来，我们来安装Flatabulous主题：" class="headerlink" title="接下来，我们来安装Flatabulous主题："></a>接下来，我们来安装Flatabulous主题：</h2><p>   同样的打开终端，输入命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/themes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install flatabulous-theme</span><br></pre></td></tr></table></figure>
+<h2 id="之后，安装与其配套的Ultra-flat图标："><a href="#之后，安装与其配套的Ultra-flat图标：" class="headerlink" title="之后，安装与其配套的Ultra-flat图标："></a>之后，安装与其配套的Ultra-flat图标：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/icons</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ultra-flat-icons</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>此时，如果你之前对apt-get进行了惨无人道的强制退出，可能会出现这样的错误提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E: 无法取得锁 /var/lib/apt/lists/lock - open</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E: 无法取得锁 /var/lib/apt/lists/加锁</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这种问题有三个可能的解决方法:</p>
+<p>​    方法一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg--configure -a</span><br></pre></td></tr></table></figure>
+<p>​    方法二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/apt/lists/lock</span><br></pre></td></tr></table></figure>
+<p>​    方法三：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps-aux 查出apt-get进程的PID</span><br><span class="line">用sudo kill PID代码杀死进程（将带apt关键字的所有进程kill）</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="安装Docky"><a href="#安装Docky" class="headerlink" title="安装Docky"></a>安装Docky</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docky</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装完成后打开docky，打开软件，在docky栏右键图标固定即可</p>
+<p>并且将Docky设置为自启动</p>
+</blockquote>
+<h2 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h2><blockquote>
+<p>一定要用<strong>apt-get安装</strong>，命令是</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install zsh12</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装成功后，改变系统的默认shell，使用命令<code>chsh -s /bin/zsh</code>，输入密码后回车，修改成功。<br>如果报错<code>chsh: PAM: Authentication failure</code>，如何解决呢？直接修改用户的配置</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/passwd/1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>打开之后，有一行以<code>Ubuntu</code>开头的，内容为：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ubuntu:x:500:500:ubuntu,,,:/home/ubuntu:bin/bash1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从上一行看出，机器的默认shell还是<code>bash</code>，把他改成<code>/bin/zsh</code>，退出登录后重新登录，发现成功了。</p>
+</blockquote>
+<hr>
+<h3 id="到此为止，需要安装的所有软件都已经部署完毕，现在只要设置好就行了"><a href="#到此为止，需要安装的所有软件都已经部署完毕，现在只要设置好就行了" class="headerlink" title="到此为止，需要安装的所有软件都已经部署完毕，现在只要设置好就行了"></a>到此为止，需要安装的所有软件都已经部署完毕，现在只要设置好就行了</h3><h5 id="设置步骤："><a href="#设置步骤：" class="headerlink" title="设置步骤："></a>设置步骤：</h5><p>  在Ubuntu <strong>终端</strong> 输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unity-tweak-tool</span><br></pre></td></tr></table></figure>
+<p>  打开 <strong>unity-tweak-tool</strong> </p>
+<p>并点击<strong>主题</strong> </p>
+<p> <img src="/2018/07/23/Ubuntu-16-04简易美化教程/1283666-20171125165746906-2130328800.png" alt=""></p>
+<p>选择<strong>Flatabulous</strong> </p>
+<hr>
+<p>之后返回 <strong>unity-tweak-tool</strong> 选择图标:</p>
+<p><img src="/2018/07/23/Ubuntu-16-04简易美化教程/1283666-20171125170006234-1602274462.png" alt=""></p>
+<p>将图标选择成<strong>Ultra-flat</strong> </p>
+<hr>
+<h2 id="不嫌烦的话，还可以改一下终端的外观设置："><a href="#不嫌烦的话，还可以改一下终端的外观设置：" class="headerlink" title="不嫌烦的话，还可以改一下终端的外观设置："></a>不嫌烦的话，还可以改一下终端的外观设置：</h2><p> 在终端界面下右键选择<strong>配置文件首选项</strong> </p>
+<p><img src="/2018/07/23/Ubuntu-16-04简易美化教程/1283666-20171125165954828-609639735.png" alt=""></p>
+<p>在出现的窗口下选择颜色，并</p>
+<ul>
+<li>勾选上 <strong>使用透明背景</strong> 将其透明度稍微拉到10%左右</li>
+<li>将 <strong>内置方案</strong> 改成 <strong>Tango</strong> </li>
+</ul>
+<p><img src="/2018/07/23/Ubuntu-16-04简易美化教程/1283666-20171125170028562-184766239.png" alt=""></p>
+<hr>
+<h1 id="大功告成，看看最终效果吧"><a href="#大功告成，看看最终效果吧" class="headerlink" title="大功告成，看看最终效果吧"></a>大功告成，看看最终效果吧</h1><p> <img src="/2018/07/23/Ubuntu-16-04简易美化教程/home/figo/桌面/DesktopFile/blog/source/_posts/Ubuntu-16-04简易美化教程/2018-07-23 16-36-36屏幕截图.png" alt=""></p>
+<hr>
+<h1 id="PS：你还可以尝试其它主题与图标"><a href="#PS：你还可以尝试其它主题与图标" class="headerlink" title="PS：你还可以尝试其它主题与图标"></a>PS：你还可以尝试其它主题与图标</h1><p>如 <strong>Numix主题</strong>:</p>
+<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:numix/ppa  </span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install numix-gtk-theme</span><br></pre></td></tr></table></figure>
+<p>和它配套的 <strong>Numix圆形图标</strong>:</p>
+<figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-add-repository ppa:numix/ppa  </span><br><span class="line">sudo apt-get update  </span><br><span class="line">sudo apt-get install numix-icon-theme-circle</span><br></pre></td></tr></table></figure>
+<p>大家如果想要其他的主题也可以去网上查，遇到漂亮的也可以在该随笔下分享，交流使大家共同进步。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Ubuntu 16.04</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">美化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/23/Ubuntu-16-04简易美化教程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-TensorFlow-基础架构学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -875,92 +1030,6 @@
 
 
   
-    <article id="post-Scrapy爬虫编程补充" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/Scrapy爬虫编程补充/">Scrapy爬虫编程补充</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/Scrapy爬虫编程补充/" class="archive-article-date">
-  	<time datetime="2018-03-05T12:37:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<blockquote>
-<ul>
-<li>创建数据库表格的sql语句, 输入表格名, 括号内是表格的<code>列名</code>(随意)及<code>类型</code>(字符串varchar varchar(<code>长度</code>), 数字int tiny, 时间datetime, 文本text)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; create table 表格名称 (column1 type, column2 type, ..., columnN type)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/03/05/Scrapy爬虫编程补充/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/Scrapy爬虫编程补充/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1107,23 +1176,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ubuntu 16.04</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">美化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,6 +1201,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Pip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
               </li>
             
             <div class="clearfix"></div>

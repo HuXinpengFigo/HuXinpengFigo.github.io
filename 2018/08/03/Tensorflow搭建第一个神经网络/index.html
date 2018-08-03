@@ -6,22 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>TensorFlow 基础架构学习 | Figo</title>
+  <title>Tensorflow搭建第一个神经网络 | Figo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="— 来自莫烦Python 计算图纸 Tensorflow 首先要定义神经网络的结构, 然后再把数据放入结构当中去运算和 training">
+  <meta name="description" content="— 来自莫烦Python 添加层 def add_layer()定义 add_layer() 在 Tensorflow 里定义一个添加层的函数可以很容易的添加神经层,为之后的添加省下不少时间. 神经层里常见的参数通常有weights、biases和激励函数。 首先，我们需要导入tensorflow模块。  1import tensorflow as tf">
 <meta name="keywords" content="Tensorflow,机器学习,神经网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TensorFlow 基础架构学习">
-<meta property="og:url" content="http://yoursite.com/2018/07/23/TensorFlow-基础架构学习/index.html">
+<meta property="og:title" content="Tensorflow搭建第一个神经网络">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/Tensorflow搭建第一个神经网络/index.html">
 <meta property="og:site_name" content="Figo">
-<meta property="og:description" content="— 来自莫烦Python 计算图纸 Tensorflow 首先要定义神经网络的结构, 然后再把数据放入结构当中去运算和 training">
-<meta property="og:image" content="http://yoursite.com/2018/07/23/TensorFlow-基础架构学习/tensors_flowing.gif">
-<meta property="og:image" content="http://yoursite.com/2018/07/23/TensorFlow-基础架构学习/%E9%80%89%E5%8C%BA_026.png">
-<meta property="og:updated_time" content="2018-08-03T07:59:29.937Z">
+<meta property="og:description" content="— 来自莫烦Python 添加层 def add_layer()定义 add_layer() 在 Tensorflow 里定义一个添加层的函数可以很容易的添加神经层,为之后的添加省下不少时间. 神经层里常见的参数通常有weights、biases和激励函数。 首先，我们需要导入tensorflow模块。  1import tensorflow as tf">
+<meta property="og:image" content="http://yoursite.com/2018/08/03/Tensorflow搭建第一个神经网络/选区_027.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/tensorflow/3_3_1.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/tensorflow/3_3_2.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup1.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup2.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup3.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup4.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup5.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup6.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup7.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/ML-intro/speedup8.png">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/tensorflow/3_4_1.png">
+<meta property="og:updated_time" content="2018-08-03T08:00:52.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TensorFlow 基础架构学习">
-<meta name="twitter:description" content="— 来自莫烦Python 计算图纸 Tensorflow 首先要定义神经网络的结构, 然后再把数据放入结构当中去运算和 training">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/23/TensorFlow-基础架构学习/tensors_flowing.gif">
+<meta name="twitter:title" content="Tensorflow搭建第一个神经网络">
+<meta name="twitter:description" content="— 来自莫烦Python 添加层 def add_layer()定义 add_layer() 在 Tensorflow 里定义一个添加层的函数可以很容易的添加神经层,为之后的添加省下不少时间. 神经层里常见的参数通常有weights、biases和激励函数。 首先，我们需要导入tensorflow模块。  1import tensorflow as tf">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/03/Tensorflow搭建第一个神经网络/选区_027.png">
   
     <link rel="alternative" href="/atom.xml" title="Figo" type="application/atom+xml">
   
@@ -157,20 +167,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-TensorFlow-基础架构学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Tensorflow搭建第一个神经网络" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      TensorFlow 基础架构学习
+      Tensorflow搭建第一个神经网络
     </h1>
   
 
         
-        <a href="/2018/07/23/TensorFlow-基础架构学习/" class="archive-article-date">
-  	<time datetime="2018-07-23T07:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
+        <a href="/2018/08/03/Tensorflow搭建第一个神经网络/" class="archive-article-date">
+  	<time datetime="2018-08-03T07:57:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
 </a>
         
       </header>
@@ -178,65 +188,159 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>— 来自莫烦Python</p>
-<h3 id="计算图纸"><a href="#计算图纸" class="headerlink" title="计算图纸"></a>计算图纸</h3><blockquote>
-<p>Tensorflow 首先要定义神经网络的结构, 然后再把数据放入结构当中去运算和 training</p>
+<h2 id="添加层-def-add-layer"><a href="#添加层-def-add-layer" class="headerlink" title="添加层 def add_layer()"></a>添加层 def add_layer()</h2><h4 id="定义-add-layer"><a href="#定义-add-layer" class="headerlink" title="定义 add_layer()"></a>定义 add_layer()</h4><blockquote>
+<p>在 Tensorflow 里定义一个添加层的函数可以很容易的添加神经层,为之后的添加省下不少时间.</p>
+<p>神经层里常见的参数通常有<code>weights</code>、<code>biases</code>和激励函数。</p>
+<p>首先，我们需要导入<code>tensorflow</code>模块。</p>
 </blockquote>
-<p><img src="/2018/07/23/TensorFlow-基础架构学习/tensors_flowing.gif" alt="tensor"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <blockquote>
-<p>因为TensorFlow是采用数据流图<code>data</code> <code>flow</code> <code>graphs</code>来计算, 所以首先我们得创建一个数<br>据流流图, 然后再将我们的数据（数据以张量<code>tensor</code>的形式存在）放在数据流图中计算. 节点<br><code>Nodes</code>在图中表示数学操作,图中的线<code>edges</code>则表示在节点间相互联系的多维数据数组, 即张<br>量<code>tensor</code>. 训练模型时<code>tensor</code>会不断的从数据流图中的一个节点flow到另一节点, 这就是<br>TensorFlow名字的由来.</p>
+<p>然后定义添加神经层的函数<code>def add_layer()</code>,它有四个参数：输入值、输入的大小、输出的大小和激励函数，我们设定默认的激励函数是<code>None</code>。</p>
 </blockquote>
-<h3 id="Tensor张量意义"><a href="#Tensor张量意义" class="headerlink" title="Tensor张量意义"></a>Tensor张量意义</h3><blockquote>
-<p>张量(<code>Tensor</code>):</p>
-<ul>
-<li>张量有多种,零阶张量为<code>纯量</code>或<code>标量</code>(<code>scalar</code>) 也就是一个数值.比如 <code>[1]</code></li>
-<li>一阶张量为<code>向量</code>(<code>vector</code>), 比如 一维的 <code>[1, 2, 3]</code></li>
-<li>二阶张量为<code>矩阵</code>(<code>matrix</code>), 比如 二维的 <code>[[1, 2, 3],[4, 5, 6],[7, 8, 9]]</code></li>
-<li>以此类推, 还有三阶,三维的 …</li>
-</ul>
-</blockquote>
-<h3 id="GradientDecent例子"><a href="#GradientDecent例子" class="headerlink" title="GradientDecent例子"></a>GradientDecent例子</h3><blockquote>
-<p>Tensorflow 是非常重视结构的, 我们得建立好了神经网络的结构, 才能将数字放进去, 运行这个结构.</p>
-</blockquote>
-<h4 id="创建数据"><a href="#创建数据" class="headerlink" title="创建数据"></a>创建数据</h4><blockquote>
-<p>首先, 我们这次需要加载<code>tensorflow</code>和<code>numpy</code>两个模块, 并且使用<code>numpy</code>来创建我们的数据.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># create data</span></span><br><span class="line">x_data = np.random.rand(<span class="number">100</span>).astype(np.float32)</span><br><span class="line">y_data = x_data*<span class="number">0.1</span> + <span class="number">0.3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(inputs, in_size, out_size, activation_function=None)</span>:</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>其中, 我们用 <code>tf.Variable</code> 来创建描述 <code>y</code> 的参数. 我们可以把 <code>y_data = x_data*0.1 + 0.3</code> 想象成 <code>y=Weights * x + biases</code>, 然后神经网络也就是学着把<code>Weights</code>变成<em>0.1</em>, <code>biases</code>变成<em>0.3</em>.</p>
+<p>接下来，我们开始定义<code>weights</code>和<code>biases</code>。</p>
+<p>因为在生成初始参数时，随机变量(normal distribution)会比全部为0要好很多，所以我们这里的<code>weights</code>为一个<code>in_size</code>行, <code>out_size</code>列的随机变量矩阵。</p>
 </blockquote>
-<h4 id="搭建模型"><a href="#搭建模型" class="headerlink" title="搭建模型"></a>搭建模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Weights = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">biases = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">y = Weights*x_data + biases</span><br></pre></td></tr></table></figure>
-<h4 id="计算误差"><a href="#计算误差" class="headerlink" title="计算误差"></a>计算误差</h4><blockquote>
-<p>接着就是计算 <code>y</code> 和 <code>y_data</code> 的误差:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Weights = tf.Variable(tf.random_normal([in_size, out_size]))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在机器学习中，<code>biases</code>的推荐值不为0，所以我们这里是在0向量的基础上又加了<code>0.1</code>。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loss = tf.reduce_mean(tf.square(y-y_data))</span><br></pre></td></tr></table></figure>
-<h4 id="传播误差"><a href="#传播误差" class="headerlink" title="传播误差"></a>传播误差</h4><blockquote>
-<p>反向传递误差的工作就教给<code>optimizer</code>了, 我们使用的误差传递方法是梯度下降法: <code>Gradient Descent</code> 让后我们使用 <code>optimizer</code> 来进行参数的更新.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">biases = tf.Variable(tf.zeros([<span class="number">1</span>, out_size]) + <span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>下面，我们定义<code>Wx_plus_b</code>, 即神经网络未激活的值。其中，<code>tf.matmul()</code>是矩阵的乘法。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train = optimizer.minimize(loss)</span><br></pre></td></tr></table></figure>
-<h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><blockquote>
-<p>到目前为止, 我们只是建立了神经网络的结构, 还没有使用这个结构. 在使用这个结构之前, 我们必须先初始化所有之前定义的<code>Variable</code>, 所以这一步是很重要的!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Wx_plus_b = tf.matmul(inputs, Weights) + biases</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当<code>activation_function</code>——激励函数为<code>None</code>时，输出就是当前的预测值——<code>Wx_plus_b</code>，不为<code>None</code>时，就把<code>Wx_plus_b</code>传到<code>activation_function()</code>函数中得到输出。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> activation_function <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        outputs = Wx_plus_b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        outputs = activation_function(Wx_plus_b)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最后，返回输出，添加一个神经层的函数——<code>def add_layer()</code>就定义好了。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> outputs</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="建造神经网络"><a href="#建造神经网络" class="headerlink" title="建造神经网络"></a>建造神经网络</h2><h4 id="add-layer-功能"><a href="#add-layer-功能" class="headerlink" title="add_layer 功能"></a>add_layer 功能</h4><blockquote>
+<p>首先，我们导入本次所需的模块。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>构造添加一个神经层的函数。（在上次课程中有详细介绍）</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_layer</span><span class="params">(inputs, in_size, out_size, activation_function=None)</span>:</span></span><br><span class="line">    Weights = tf.Variable(tf.random_normal([in_size, out_size]))</span><br><span class="line">    biases = tf.Variable(tf.zeros([<span class="number">1</span>, out_size]) + <span class="number">0.1</span>)</span><br><span class="line">    Wx_plus_b = tf.matmul(inputs, Weights) + biases</span><br><span class="line">    <span class="keyword">if</span> activation_function <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        outputs = Wx_plus_b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        outputs = activation_function(Wx_plus_b)</span><br><span class="line">    <span class="keyword">return</span> outputs</span><br></pre></td></tr></table></figure>
+<h4 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h4><blockquote>
+<p>构建所需的数据。 这里的<code>x_data</code>和<code>y_data</code>并不是严格的一元二次函数的关系，因为我们多加了一个<code>noise</code>,这样看起来会更像真实情况。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x_data = np.linspace(<span class="number">-1</span>,<span class="number">1</span>,<span class="number">300</span>, dtype=np.float32)[:, np.newaxis]</span><br><span class="line">noise = np.random.normal(<span class="number">0</span>, <span class="number">0.05</span>, x_data.shape).astype(np.float32)</span><br><span class="line">y_data = np.square(x_data) - <span class="number">0.5</span> + noise</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>利用占位符定义我们所需的神经网络的输入。 <code>tf.placeholder()</code>就是代表占位符，这里的<code>None</code>代表无论输入有多少都可以，因为输入只有一个特征，所以这里是<code>1</code>。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xs = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">1</span>])</span><br><span class="line">ys = tf.placeholder(tf.float32, [<span class="keyword">None</span>, <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来，我们就可以开始定义神经层了。 通常神经层都包括输入层、隐藏层和输出层。这里的输入层只有一个属性， 所以我们就只有一个输入；隐藏层我们可以自己假设，这里我们假设隐藏层有10个神经元； 输出层和输入层的结构是一样的，所以我们的输出层也是只有一层。 所以，我们构建的是——输入层1个、隐藏层10个、输出层1个的神经网络。</p>
+</blockquote>
+<h4 id="搭建网络"><a href="#搭建网络" class="headerlink" title="搭建网络"></a>搭建网络</h4><blockquote>
+<p>下面，我们开始定义隐藏层,利用之前的<code>add_layer()</code>函数，这里使用 Tensorflow 自带的激励函数<code>tf.nn.relu</code>。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">l1 = add_layer(xs, <span class="number">1</span>, <span class="number">10</span>, activation_function=tf.nn.relu)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接着，定义输出层。此时的输入就是隐藏层的输出——<code>l1</code>，输入有10层（隐藏层的输出层），输出有1层。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prediction = add_layer(l1, <span class="number">10</span>, <span class="number">1</span>, activation_function=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>计算预测值<code>prediction</code>和真实值的误差，对二者差的平方求和再取平均。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys - prediction),</span><br><span class="line">                     reduction_indices=[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来，是很关键的一步，如何让机器学习提升它的准确率。<code>tf.train.GradientDescentOptimizer()</code>中的值通常都小于1，这里取的是<code>0.1</code>，代表以<code>0.1</code>的效率来最小化误差<code>loss</code>。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.1</span>).minimize(loss)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用变量时，都要对它进行初始化，这是必不可少的。</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># init = tf.initialize_all_variables() # tf 马上就要废弃这种写法</span></span><br><span class="line">init = tf.global_variables_initializer()  <span class="comment"># 替换成这样就好</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>接着,我们再创建会话 <code>Session</code>. 我们会在下一节中详细讲解 Session. 我们用 <code>Session</code> 来执行 <code>init</code> 初始化步骤. 并且, 用 <code>Session</code> 来 <code>run</code> 每一次 training 的数据. 逐步提升神经网络的预测准确性.</p>
+<p>定义<code>Session</code>，并用 <code>Session</code> 来执行 <code>init</code> 初始化步骤。 （注意：在<code>tensorflow</code>中，只有<code>session.run()</code>才会执行我们定义的运算。）</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)          <span class="comment"># Very important</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">201</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step % <span class="number">20</span> == <span class="number">0</span>:</span><br><span class="line">        print(step, sess.run(Weights), sess.run(biases))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
+<h4 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h4><blockquote>
+<p>下面，让机器开始学习。</p>
+<p>比如这里，我们让机器学习1000次。机器学习的内容是<code>train_step</code>, 用 <code>Session</code> 来 <code>run</code> 每一次 training 的数据，逐步提升神经网络的预测准确性。 (注意：当运算要用到<code>placeholder</code>时，就需要<code>feed_dict</code>这个字典来指定输入。)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    <span class="comment"># training</span></span><br><span class="line">    sess.run(train_step, feed_dict=&#123;xs: x_data, ys: y_data&#125;)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>运行结果如图:</p>
-<p><img src="/2018/07/23/TensorFlow-基础架构学习/%E9%80%89%E5%8C%BA_026.png" alt="expG"></p>
+<p>每50步我们输出一下机器学习的误差。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> i % <span class="number">50</span> == <span class="number">0</span>:</span><br><span class="line">    <span class="comment"># to see the step improvement</span></span><br><span class="line">    print(sess.run(loss, feed_dict=&#123;xs: x_data, ys: y_data&#125;))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在电脑上运行本次代码的结果为：</p>
+<p><img src="/2018/08/03/Tensorflow搭建第一个神经网络/选区_027.png" alt=""></p>
 </blockquote>
 <hr>
-<h3 id="Placeholder-传入值"><a href="#Placeholder-传入值" class="headerlink" title="Placeholder 传入值"></a>Placeholder 传入值</h3><blockquote>
-<p><code>placeholder</code> 是 Tensorflow 中的占位符，暂时储存变量</p>
-<p>类似形参,规定类型而外部传值</p>
-<p>Tensorflow 如果想要从外部传入data, 那就需要用到 <code>tf.placeholder()</code>, 然后以这种形式传输数据 <code>sess.run(***, feed_dict={input: **})</code></p>
+<h2 id="结果可视化"><a href="#结果可视化" class="headerlink" title="结果可视化"></a>结果可视化</h2><h4 id="matplotlib-可视化"><a href="#matplotlib-可视化" class="headerlink" title="matplotlib 可视化"></a>matplotlib 可视化</h4><blockquote>
+<p>构建图形，用散点图描述真实数据之间的关系。 （注意：<code>plt.ion()</code>用于连续显示。）</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="comment">#在 Tensorflow 中需要定义 placeholder 的 type ，一般为 float32 形式</span></span><br><span class="line">input1 = tf.placeholder(tf.float32)</span><br><span class="line">input2 = tf.placeholder(tf.float32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># mul = multiply 是将input1和input2 做乘法运算，并输出为 output </span></span><br><span class="line">ouput = tf.multiply(input1, input2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plot the real data</span></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">ax.scatter(x_data, y_data)</span><br><span class="line">plt.ion()<span class="comment">#本次运行请注释，全局运行不要注释</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>接下来, 传值的工作交给了 <code>sess.run()</code> , 需要传入的值放在了<code>feed_dict={}</code> 并一一对应每一个 <code>input</code>.<code>placeholder</code> 与 <code>feed_dict={}</code> 是绑定在一起出现的</p>
+<p>散点图的结果为：</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    print(sess.run(ouput, feed_dict=&#123;input1: [<span class="number">7.</span>], input2: [<span class="number">2.</span>]&#125;))</span><br><span class="line"><span class="comment"># result:[ 14.]</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://morvanzhou.github.io/static/results/tensorflow/3_3_1.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/tensorflow/3_3_1.png" alt="例子3 结果可视化"></a></p>
+<blockquote>
+<p>接下来，我们来显示预测数据。</p>
+<p>每隔50次训练刷新一次图形，用红色、宽度为5的线来显示我们的预测数据和输入之间的关系，并暂停0.1s。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    <span class="comment"># training</span></span><br><span class="line">    sess.run(train_step, feed_dict=&#123;xs: x_data, ys: y_data&#125;)</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">50</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># to visualize the result and improvement</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            ax.lines.remove(lines[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        prediction_value = sess.run(prediction, feed_dict=&#123;xs: x_data&#125;)</span><br><span class="line">        <span class="comment"># plot the prediction</span></span><br><span class="line">        lines = ax.plot(x_data, prediction_value, <span class="string">'r-'</span>, lw=<span class="number">5</span>)</span><br><span class="line">        plt.pause(<span class="number">0.1</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>最后，机器学习的结果为：</p>
+</blockquote>
+<p><a href="https://morvanzhou.github.io/static/results/tensorflow/3_3_2.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/tensorflow/3_3_2.png" alt="例子3 结果可视化"></a></p>
+<h2 id="加速神经网络训练-Speed-Up-Training"><a href="#加速神经网络训练-Speed-Up-Training" class="headerlink" title="加速神经网络训练 (Speed Up Training)"></a>加速神经网络训练 (Speed Up Training)</h2><p>包括以下几种模式:</p>
+<ul>
+<li>Stochastic Gradient Descent (SGD)</li>
+<li>Momentum</li>
+<li>AdaGrad</li>
+<li>RMSProp</li>
+<li>Adam</li>
+</ul>
+<p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup1.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup1.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>越复杂的神经网络 , 越多的数据 , 我们需要在训练神经网络的过程上花费的时间也就越多. 原因很简单, 就是因为计算量太大了. 可是往往有时候为了解决复杂的问题, 复杂的结构和大数据又是不能避免的, 所以我们需要寻找一些方法, 让神经网络聪明起来, 快起来.</p>
+</blockquote>
+<h4 id="Stochastic-Gradient-Descent-SGD"><a href="#Stochastic-Gradient-Descent-SGD" class="headerlink" title="Stochastic Gradient Descent (SGD)"></a>Stochastic Gradient Descent (SGD)</h4><p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup2.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup2.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>所以, 最基础的方法就是 SGD 啦, 想像红色方块是我们要训练的 data, 如果用普通的训练方法, 就需要重复不断的把整套数据放入神经网络 NN训练, 这样消耗的计算资源会很大.</p>
+<p>我们换一种思路, 如果把这些数据拆分成小批小批的, 然后再分批不断放入 NN 中计算, 这就是我们常说的 SGD 的正确打开方式了. 每次使用批数据, 虽然不能反映整体数据的情况, 不过却很大程度上加速了 NN 的训练过程, 而且也不会丢失太多准确率.如果运用上了 SGD, 你还是嫌训练速度慢, 那怎么办?</p>
+</blockquote>
+<p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup3.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup3.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>没问题, 事实证明, SGD 并不是最快速的训练方法, 红色的线是 SGD, 但它到达学习目标的时间是在这些方法中最长的一种. 我们还有很多其他的途径来加速训练.</p>
+</blockquote>
+<h4 id="Momentum-更新方法"><a href="#Momentum-更新方法" class="headerlink" title="Momentum 更新方法"></a>Momentum 更新方法</h4><p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup4.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup4.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>大多数其他途径是在更新神经网络参数那一步上动动手脚. 传统的参数 W 的更新是把原始的 W 累加上一个负的学习率(learning rate) 乘以校正值 (dx). 这种方法可能会让学习过程曲折无比, 看起来像 喝醉的人回家时, 摇摇晃晃走了很多弯路.</p>
+</blockquote>
+<p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup5.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup5.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>所以我们把这个人从平地上放到了一个斜坡上, 只要他往下坡的方向走一点点, 由于向下的惯性, 他不自觉地就一直往下走, 走的弯路也变少了. 这就是 Momentum 参数更新. 另外一种加速方法叫AdaGrad.</p>
+</blockquote>
+<h4 id="AdaGrad-更新方法"><a href="#AdaGrad-更新方法" class="headerlink" title="AdaGrad 更新方法"></a>AdaGrad 更新方法</h4><p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup6.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup6.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>这种方法是在学习率上面动手脚, 使得每一个参数更新都会有自己与众不同的学习率, 他的作用和 momentum 类似, 不过不是给喝醉酒的人安排另一个下坡, 而是给他一双不好走路的鞋子, 使得他一摇晃着走路就脚疼, 鞋子成为了走弯路的阻力, 逼着他往前直着走. 他的数学形式是这样的. 接下来又有什么方法呢? 如果把下坡和不好走路的鞋子合并起来, 是不是更好呢? 没错, 这样我们就有了 RMSProp 更新方法.</p>
+</blockquote>
+<h4 id="RMSProp-更新方法"><a href="#RMSProp-更新方法" class="headerlink" title="RMSProp 更新方法"></a>RMSProp 更新方法</h4><p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup7.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup7.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>有了 momentum 的惯性原则 , 加上 adagrad 的对错误方向的阻力, 我们就能合并成这样. 让 RMSProp同时具备他们两种方法的优势. 不过细心的同学们肯定看出来了, 似乎在 RMSProp 中少了些什么. 原来是我们还没把 Momentum合并完全, RMSProp 还缺少了 momentum 中的 这一部分. 所以, 我们在 Adam 方法中补上了这种想法.</p>
+</blockquote>
+<h4 id="Adam-更新方法"><a href="#Adam-更新方法" class="headerlink" title="Adam 更新方法"></a>Adam 更新方法</h4><p><a href="https://morvanzhou.github.io/static/results/ML-intro/speedup8.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/ML-intro/speedup8.png" alt="加速神经网络训练 (Speed Up Training)"></a></p>
+<blockquote>
+<p>计算m 时有 momentum 下坡的属性, 计算 v 时有 adagrad 阻力的属性, 然后再更新参数时 把 m 和 V 都考虑进去. 实验证明, 大多数时候, 使用 adam 都能又快又好的达到目标, 迅速收敛. 所以说, 在加速神经网络训练的时候, 一个下坡, 一双破鞋子, 功不可没.</p>
+</blockquote>
+<h2 id="各种不同的优化器"><a href="#各种不同的优化器" class="headerlink" title="各种不同的优化器"></a>各种不同的优化器</h2><p>本次课程，我们会讲到<code>Tensorflow</code>里面的优化器。</p>
+<p>Tensorflow 中的优化器会有很多不同的种类。最基本, 也是最常用的一种就是<code>GradientDescentOptimizer</code>。</p>
+<p>在Google搜索中输入“tensorflow optimizer”可以看到<code>Tensorflow</code>提供了7种优化器：<a href="https://www.tensorflow.org/versions/r0.11/api_docs/python/train.html" target="_blank" rel="noopener">链接</a></p>
+<p><a href="https://morvanzhou.github.io/static/results/tensorflow/3_4_1.png" target="_blank" rel="noopener"><img src="https://morvanzhou.github.io/static/results/tensorflow/3_4_1.png" alt="优化器 optimizer"></a></p>
+
       
 
       
@@ -344,7 +448,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/23/TensorFlow-基础架构学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/Tensorflow搭建第一个神经网络/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,18 +462,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/23/Ubuntu-16-04简易美化教程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Ubuntu 16.04简易美化教程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/12/Machine-Learning-初识机器学习-Week3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Machine Learning--初识机器学习(Week3)</div>
+    <a href="/2018/07/23/Ubuntu-16-04简易美化教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu 16.04简易美化教程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -421,8 +516,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2018/07/23/TensorFlow-基础架构学习/", 
-    sourceId: "TensorFlow-基础架构学习",
+    url: "http://yoursite.com/2018/08/03/Tensorflow搭建第一个神经网络/", 
+    sourceId: "Tensorflow搭建第一个神经网络",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
